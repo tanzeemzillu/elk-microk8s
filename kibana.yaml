@@ -44,8 +44,11 @@ spec:
           - name: ELASTICSEARCH_URL
             value: http://elasticsearch:9200
           - name: ELASTICSEARCH_USERNAME
-            value: elastic
+            value: kibana
           - name: ELASTICSEARCH_PASSWORD
-            value: changeme
+            valueFrom:
+              secretKeyRef:
+                name: kibana
+                key: password
         ports:
         - containerPort: 5601
