@@ -7,6 +7,10 @@ data:
   logstash.yml: |
     http.host: "0.0.0.0"
     path.config: /usr/share/logstash/pipeline
+    xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+    xpack.monitoring.enabled: true
+    xpack.monitoring.elasticsearch.username: logstash_system
+    xpack.monitoring.elasticsearch.password: KuwWPW82odCUl7oQ0xd6
   logstash.conf: |
     # all input will come from filebeat, no local logs
     input {
@@ -29,6 +33,8 @@ data:
     output {
         elasticsearch {
             hosts => [ "elasticsearch:9200" ]
+            user => "elastic"
+            password => "Dg3GLor39zU7G7u8JEq3"
         }
     }
 ---

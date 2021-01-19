@@ -39,10 +39,14 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.name
+          - name: discovery.type
+            value: single-node
+          - name: xpack.security.enabled
+            value: 'true'
           # - name: discovery.seed_hosts
           #   value: "es-cluster-0.elasticsearch"
-          - name: cluster.initial_master_nodes
-            value: "es-cluster-0"
+          # - name: cluster.initial_master_nodes
+          #  value: "es-cluster-0"
           - name: ES_JAVA_OPTS
             value: "-Xms512m -Xmx512m"
       initContainers:
@@ -76,4 +80,4 @@ spec:
       storageClassName: local-storage
       resources:
         requests:
-          storage: 100Gi
+          storage: 10Gi
